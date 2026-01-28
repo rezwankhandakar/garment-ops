@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth } from './Firebase.config';
 import { AuthContext } from './AuthContext';
@@ -22,6 +22,17 @@ const AuthProvider = ({ children }) => {
         });
     };
 
+    //Sign In user 
+    const signInUser = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
+
+    //log out 
+    const logOut = () => {
+        setLoading(true);
+        return signOut(auth);
+    };
 
     // 🔹 Track Auth State
     useEffect(() => {
@@ -39,6 +50,8 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         updateUserProfile,
+        signInUser,
+        logOut,
     };
 
     return (
