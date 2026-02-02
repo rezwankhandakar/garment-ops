@@ -40,7 +40,7 @@ const Register = () => {
       };
 
       await axiosSecure.post("/users", userInfo);
-
+      console.log(userInfo)
       toast.success("Registration successful!");
       navigate("/");
 

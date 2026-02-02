@@ -1,9 +1,12 @@
 import React from 'react';
+import HowItWorks from '../Component/HowItWorks';
+import CustomerFeedback from '../Component/CustomerFeedback';
 
 const Home = () => {
     return (
         <div>
-            <h2 className='text-5xl'>Home Page</h2>
+           <HowItWorks></HowItWorks>
+           <CustomerFeedback></CustomerFeedback>
         </div>
     );
 };
